@@ -14,29 +14,32 @@ public class AC1_navigateToVehicle {
 
     WebDriver driver;
 
-    @Test
+    @Test (priority = 1)
     public void setUpMethod() {
         driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
         driver.get("https://qa2.vytrack.com/user/login");
         WebElement userNameBox = driver.findElement(By.xpath("//input[@id='prependedInput']"));
         userNameBox.sendKeys("user177");
-
         WebElement password = driver.findElement(By.xpath("//input[@id='prependedInput2']"));
         password.sendKeys("UserUser123");
-
         WebElement loginButton = driver.findElement(By.xpath("//button[@id='_submit']"));
         loginButton.click();
     }
 
-    @AfterMethod
-    public void teardownMethod() {
-        //  driver.close();
-    }
+//AC #1: Verify that truck driver should be able to see all Vehicle information once navigate to Vehicle page.
+     /*
+    Given the user navigate to the vytrack with the username user177, password UserUser123
+Then the user will see Fleet Management page
+When the user clicks fleet module
+Then the user will see Vehicles sub-module
+When the user clicks the Vehicles sub-module
+Then the user will see the Cars header
+And the user will see the Grid of all Vehicles
+     */
 
-    @Test
+    @Test (priority = 2)
     public void vehicleModule() {
         // 1.Verify that truck driver should be able to see all Vehicle information once navigate to Vehicle page.
 
@@ -48,19 +51,29 @@ public class AC1_navigateToVehicle {
     }
 
     //2 Verify that when user click on any car on the grid , system should display general information about the car
-
-    @Test
+    /*
+    Given the user is already on the Vehicles sub-module
+    And the user sees the Cars header
+    When the user clicks on any car on the grid
+    Then the user will see the General Information on the selected car
+     */
+    @Test (priority = 3)
     public void generalInformation() {
 
-        WebElement car = driver.findElement(By.xpath("//td[.='SDET']"));
+        WebElement car = driver.findElement(By.xpath("(//tr[@class='grid-row row-click-action'])[1]"));
         car.click();
-
         WebElement generalInfo = driver.findElement(By.xpath("//span[.='General Information']"));
 
-     //   System.out.println("generalInfo.isDisplayed() = " + generalInfo.isDisplayed());
     }
 
     // 3.Verify that truck driver can add Event and it should display under Activity tab and General information page as well.
+/*
+Given the user is already on the page with the selected car
+When the user clicks the Add Event button
+And user fills out all information
+And the user will click the Save button
+Then the event will be displayed under Activity tab and General information
+ */
 
  //   @Test
     public void addEvent() {
@@ -87,5 +100,8 @@ public class AC1_navigateToVehicle {
         saveBtn.click();
     }
 
-
+    @AfterMethod
+    public void teardownMethod() {
+        //  driver.close();
+    }
 }

@@ -74,7 +74,7 @@ And the user will click the Save button
 Then the event will be displayed under Activity tab and General information
  */
 
- //   @Test
+   // @Test (priority = 4)
     public void addEvent() {
         WebElement addEventBtn = driver.findElement(By.xpath("//a[@class='btn icons-holder-text no-hash']"));
         addEventBtn.click();

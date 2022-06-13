@@ -3,6 +3,7 @@ package com.cydeo.test.CRM;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterMethod;
 
 public class CRMLoginUtil {
 
@@ -15,8 +16,8 @@ public class CRMLoginUtil {
 
         WebElement loginBtn = driver.findElement(By.xpath("//input[@class='login-btn']"));
         loginBtn.click();
-
     }
+
 
 
 }

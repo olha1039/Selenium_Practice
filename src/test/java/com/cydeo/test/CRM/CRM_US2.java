@@ -56,22 +56,29 @@ public class CRM_US2 extends TestBase {
     // And user adds link to the popup window
     // And user click save
     // Then link should be added to text message
- //   @Test
-    public void AC3attachLink(){
+    @Test
+    public void AC3attachLink() {
         driver.get("https://login2.nextbasecrm.com/");
         CRMLoginUtil.crm_login(driver, "marketing57@cybertekschool.com", "UserUser");
         WebElement messageBtn = driver.findElement(By.cssSelector("span[id*='form-tab-message']"));
         messageBtn.click();
-       // driver.switchTo().frame(driver.findElement(By.cssSelector(".bx-editor-iframe")));
-        WebElement linkBtn = driver.findElement(By.cssSelector("//div[@id='post-buttons-bottom']//span[@title='Link']"));
+        // driver.switchTo().frame(driver.findElement(By.cssSelector(".bx-editor-iframe")));
+        WebElement linkBtn = driver.findElement(By.xpath("//span[@title='Link']"));
         linkBtn.click();
+        WebElement linkField = driver.findElement(By.cssSelector("#linkidPostFormLHE_blogPostForm-href"));
+        linkField.sendKeys("www.google.com");
+        WebElement saveBtn = driver.findElement(By.cssSelector("#undefined"));
+        saveBtn.click();
+        driver.switchTo().frame(driver.findElement(By.cssSelector(".bx-editor-iframe")));
+        Assert.assertEquals(driver.findElement(By.tagName("body")).getText(), "www.google.com", "Assertion failed");
     }
 
 
 
 
 
- //   @AfterMethod
+
+    @AfterMethod
     public void tearDown() {
         driver.close();
     }

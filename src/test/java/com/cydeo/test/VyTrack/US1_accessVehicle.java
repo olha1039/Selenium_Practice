@@ -13,12 +13,13 @@ public class US1_accessVehicle {
 
     WebDriver driver;
 
-    @Test (priority = 1)
-    public void setUpMethod() {
+    @Test
+    public void AC1setUpMethod() {
         driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://qa2.vytrack.com/user/login");
+
         WebElement userNameBox = driver.findElement(By.xpath("//input[@id='prependedInput']"));
         userNameBox.sendKeys("user177");
         WebElement password = driver.findElement(By.xpath("//input[@id='prependedInput2']"));
@@ -38,8 +39,8 @@ Then the user will see the Cars header
 And the user will see the Grid of all Vehicles
      */
 
-    @Test (priority = 2)
-    public void vehicleModule() {
+    @Test
+    public void AC2vehicleModule() {
         // 1.Verify that truck driver should be able to see all Vehicle information once navigate to Vehicle page.
 
         WebElement fleetModule = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
@@ -49,6 +50,18 @@ And the user will see the Grid of all Vehicles
         vehicleModule.click();
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
     //2 Verify that when user click on any car on the grid , system should display general information about the car
     /*
     Given the user is already on the Vehicles sub-module
@@ -56,14 +69,14 @@ And the user will see the Grid of all Vehicles
     When the user clicks on any car on the grid
     Then the user will see the General Information on the selected car
      */
-    @Test (priority = 3)
-    public void generalInformation() {
-
-        WebElement car = driver.findElement(By.xpath("(//tr[@class='grid-row row-click-action'])[1]"));
-        car.click();
-        WebElement generalInfo = driver.findElement(By.xpath("//span[.='General Information']"));
-
-    }
+//    @Test
+//    public void AC3generalInformation() {
+//
+//        WebElement car = driver.findElement(By.xpath("(//tr[@class='grid-row row-click-action'])[1]"));
+//        car.click();
+//        WebElement generalInfo = driver.findElement(By.xpath("//span[.='General Information']"));
+//
+//    }
 
     // 3.Verify that truck driver can add Event and it should display under Activity tab and General information page as well.
 /*
@@ -74,33 +87,33 @@ And the user will click the Save button
 Then the event will be displayed under Activity tab and General information
  */
 
-   // @Test (priority = 4)
-    public void addEvent() {
-        WebElement addEventBtn = driver.findElement(By.xpath("//a[@class='btn icons-holder-text no-hash']"));
-        addEventBtn.click();
-        System.out.println("addEventBtn.isDisplayed() = " + addEventBtn.isDisplayed());
-
-        WebElement titleTextBox = driver.findElement(By.xpath("//input[@id='oro_calendar_event_form_title-uid-62a0fa03d4bc8']"));
-        titleTextBox.sendKeys("group29");
-
-        WebElement ownerDropdown = driver.findElement(By.xpath("//button[@class='add-on btn entity-select-btn']"));
-        ownerDropdown.click();
-
-        WebElement name = driver.findElement(By.xpath("(//td[@class='string-cell grid-cell grid-body-cell grid-body-cell-username'])[1]"));
-        name.click();
-
-        WebElement organizerName = driver.findElement(By.xpath("//input[@id='oro_calendar_event_form_organizerDisplayName-uid-62a0fac81abe7']"));
-        organizerName.sendKeys("Saikal");
-
-        WebElement organizerEmail = driver.findElement(By.xpath("//input[@id='oro_calendar_event_form_organizerEmail-uid-62a0fac81acd7']"));
-        organizerEmail.sendKeys("saikal@cydeo.com");
-
-        WebElement saveBtn = driver.findElement(By.xpath("//button[@class='btn btn-primary']"));
-        saveBtn.click();
-    }
-
-    @AfterMethod
-    public void teardownMethod() {
-        //  driver.close();
-    }
+//   // @Test
+//    public void AC4addEvent() {
+//        WebElement addEventBtn = driver.findElement(By.xpath("//a[@class='btn icons-holder-text no-hash']"));
+//        addEventBtn.click();
+//        System.out.println("addEventBtn.isDisplayed() = " + addEventBtn.isDisplayed());
+//
+//        WebElement titleTextBox = driver.findElement(By.xpath("//input[@id='oro_calendar_event_form_title-uid-62a0fa03d4bc8']"));
+//        titleTextBox.sendKeys("group29");
+//
+//        WebElement ownerDropdown = driver.findElement(By.xpath("//button[@class='add-on btn entity-select-btn']"));
+//        ownerDropdown.click();
+//
+//        WebElement name = driver.findElement(By.xpath("(//td[@class='string-cell grid-cell grid-body-cell grid-body-cell-username'])[1]"));
+//        name.click();
+//
+//        WebElement organizerName = driver.findElement(By.xpath("//input[@id='oro_calendar_event_form_organizerDisplayName-uid-62a0fac81abe7']"));
+//        organizerName.sendKeys("Saikal");
+//
+//        WebElement organizerEmail = driver.findElement(By.xpath("//input[@id='oro_calendar_event_form_organizerEmail-uid-62a0fac81acd7']"));
+//        organizerEmail.sendKeys("saikal@cydeo.com");
+//
+//        WebElement saveBtn = driver.findElement(By.xpath("//button[@class='btn btn-primary']"));
+//        saveBtn.click();
+//    }
+//
+//    @AfterMethod
+//    public void teardownMethod() {
+//        //  driver.close();
+//    }
 }

@@ -17,7 +17,7 @@ public class CRM_US2 extends TestBase {
     @Test
     public void AC1sendText() {
         driver.get("https://login2.nextbasecrm.com/");
-        CRMLoginUtil.crm_login(driver, "marketing57@cybertekschool.com", "UserUser");
+        CRMLoginUtil.crm_login(driver, "hr57@cybertekschool.com", "UserUser");
         WebElement messageBtn = driver.findElement(By.cssSelector("span[id*='form-tab-message']"));
         messageBtn.click();
         driver.switchTo().frame(driver.findElement(By.cssSelector(".bx-editor-iframe")));
@@ -40,7 +40,7 @@ public class CRM_US2 extends TestBase {
     @Test
     public void AC2CancelMessage() {
         driver.get("https://login2.nextbasecrm.com/");
-        CRMLoginUtil.crm_login(driver, "marketing57@cybertekschool.com", "UserUser");
+        CRMLoginUtil.crm_login(driver, "hr57@cybertekschool.com", "UserUser");
         WebElement messageBtn = driver.findElement(By.cssSelector("span[id*='form-tab-message']"));
         messageBtn.click();
         driver.switchTo().frame(driver.findElement(By.cssSelector(".bx-editor-iframe")));
@@ -59,7 +59,7 @@ public class CRM_US2 extends TestBase {
     @Test
     public void AC3attachLink() {
         driver.get("https://login2.nextbasecrm.com/");
-        CRMLoginUtil.crm_login(driver, "marketing57@cybertekschool.com", "UserUser");
+        CRMLoginUtil.crm_login(driver, "hr57@cybertekschool.com", "UserUser");
         WebElement messageBtn = driver.findElement(By.cssSelector("span[id*='form-tab-message']"));
         messageBtn.click();
         // driver.switchTo().frame(driver.findElement(By.cssSelector(".bx-editor-iframe")));

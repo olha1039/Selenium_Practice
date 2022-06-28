@@ -19,12 +19,11 @@ public class P01_FileUpload {
     public void fileUpload(){
         Driver.getDriver().get("https://testpages.herokuapp.com/styled/file-upload-test.html");
 
-        String filePath = "C:\\Users\\olga-\\OneDrive\\Desktop\\Uploadfile.txt.txt";
+        String filePath = "C:\\Users\\olga-\\IdeaProjects\\Selenium_Practice\\src\\test\\resources\\UploadTest.txt";
         WebElement chooseFile = Driver.getDriver().findElement(By.id("fileinput"));
         chooseFile.sendKeys(filePath);
 
-        WebElement radioBtn = Driver.getDriver().findElement(By.id("itsafile"));
-        radioBtn.click();
+        Driver.getDriver().findElement(By.id("itsafile")).click();
 
         WebElement uploadBtn = Driver.getDriver().findElement(By.name("upload"));
         uploadBtn.click();

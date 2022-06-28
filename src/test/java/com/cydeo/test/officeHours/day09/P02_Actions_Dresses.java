@@ -9,6 +9,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class P02_Actions_Dresses {
 //    Task 1
 //
@@ -29,14 +31,31 @@ public class P02_Actions_Dresses {
 
         actions.moveToElement(dressesBtn).perform();
 
-        WebElement casualDresses=Driver.getDriver().findElement(By.xpath("(//a[@title='Casual Dresses'])[2]"));
-        Assert.assertTrue(casualDresses.isDisplayed());
-        //  Evening Dresses
-        WebElement eveningDresses=Driver.getDriver().findElement(By.xpath("(//a[@title='Evening Dresses'])[2]"));
-        Assert.assertTrue(eveningDresses.isDisplayed());
-        // Summer Dresses
-        WebElement summerDresses=Driver.getDriver().findElement(By.xpath("(//a[@title='Summer Dresses'])[2]"));
-        Assert.assertTrue(summerDresses.isDisplayed());
+        List<WebElement> subCategories = Driver.getDriver().findElements(By.xpath("(//a[@title=\"Dresses\"])[2]/..//li"));
+
+        for (WebElement subCategory : subCategories) {
+            System.out.println(subCategory.isDisplayed());
+            Assert.assertTrue(subCategory.isDisplayed());
+        }
+
+
+
+
+
+
+
+
+
+
+
+//        WebElement casualDresses=Driver.getDriver().findElement(By.xpath("(//a[@title='Casual Dresses'])[2]"));
+//        Assert.assertTrue(casualDresses.isDisplayed());
+//        //  Evening Dresses
+//        WebElement eveningDresses=Driver.getDriver().findElement(By.xpath("(//a[@title='Evening Dresses'])[2]"));
+//        Assert.assertTrue(eveningDresses.isDisplayed());
+//        // Summer Dresses
+//        WebElement summerDresses=Driver.getDriver().findElement(By.xpath("(//a[@title='Summer Dresses'])[2]"));
+//        Assert.assertTrue(summerDresses.isDisplayed());
     }
 
 

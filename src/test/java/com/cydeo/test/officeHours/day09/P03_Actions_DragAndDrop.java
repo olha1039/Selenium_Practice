@@ -26,7 +26,7 @@ public class P03_Actions_DragAndDrop {
         Driver.getDriver().switchTo().frame(iframe);
         //Extra
         List <WebElement> elements = Driver.getDriver().findElements(By.xpath("//h5[contains(.,\"High\")]"));
-        System.out.println(BrowserUtils.getElements(elements));
+        System.out.println(BrowserUtils.getElementsText(elements));
         System.out.println(BrowserUtils.getElementsTextWithStream(elements));
 
         WebElement first = Driver.getDriver().findElement(By.xpath("//h5[.=\"High Tatras\"]"));

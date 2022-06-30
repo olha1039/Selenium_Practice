@@ -1,4 +1,4 @@
-package com.cydeo.test.officeHours;
+package com.cydeo.test.officeHours.day06;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;

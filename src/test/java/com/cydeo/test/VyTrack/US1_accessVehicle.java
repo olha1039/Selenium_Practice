@@ -1,5 +1,6 @@
 package com.cydeo.test.VyTrack;
 
+import com.cydeo.test.utility.Driver;
 import com.cydeo.test.utility.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +27,7 @@ public class US1_accessVehicle {
         password.sendKeys("UserUser123");
         WebElement loginButton = driver.findElement(By.xpath("//button[@id='_submit']"));
         loginButton.click();
+
     }
 
 //AC #1: Verify that truck driver should be able to see all Vehicle information once navigate to Vehicle page.
@@ -48,6 +50,9 @@ And the user will see the Grid of all Vehicles
 
         WebElement vehicleModule = driver.findElement(By.xpath("(//span[@class='title title-level-2'])[1]"));
         vehicleModule.click();
+
+        System.out.println(Driver.getDriver().getTitle());
+
     }
 
 
